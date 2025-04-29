@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN git clone https://github.com/Ludovic-SIO/MyBodyTracer.git /tmp/MyBodyTracer
 
 # Copie des fichiers php
-RUN cp -r /tmp/Video_game_tournament_management/site/* /var/www/html/
+RUN cp -r /tmp/MyBodyTracer/site/* /var/www/html/
 
 # Création des fichier nécésaire pour bind
 #RUN mkdir /etc/bind
