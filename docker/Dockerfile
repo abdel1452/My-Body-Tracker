@@ -6,23 +6,23 @@ RUN apt-get update && apt-get install -y \
     git \
     && docker-php-ext-install pdo pdo_mysql mysqli
 
-
-# Clonage du dépôt principal et création d'un dossier temporaire tmp/Video_game_tournament_management
+# Clonage du dépôt MyBodyTracker
 RUN git clone https://github.com/Ludovic-SIO/MyBodyTracker.git /tmp/MyBodyTracker
 
-# Copie des fichiers php
+# Copie des fichiers PHP dans Apache
 RUN cp -r /tmp/MyBodyTracker/site/* /var/www/html/
 
-# Création des fichier nécésaire pour bind
-#RUN mkdir /etc/bind
-#RUN mkdir /var/lib/bind
+# Préparation des dossiers nécessaires pour BIND
+#RUN mkdir -p /etc/bind
+#RUN mkdir -p /var/lib/bind
 
-# Copie des fichiers dns
-#RUN cp -r /tmp/Video_game_tournament_management/docker/config/* /etc/bind/
-#RUN cp -r /tmp/Video_game_tournament_management/docker/zones/* /var/lib/bind/
+# Copie des fichiers de configuration DNS (Bind9)
+#RUN cp -r /tmp/MyBodyTracker/docker/config/* /etc/bind/
+#RUN cp -r /tmp/MyBodyTracker/docker/zones/* /var/lib/bind/
 
-# Nettoyage
+# Nettoyage du dépôt temporaire
 RUN rm -rf /tmp/MyBodyTracker
 
+# Expose le port 80 (Apache)
 EXPOSE 80
 
