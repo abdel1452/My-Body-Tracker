@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 
 # Clonage du dépôt principal et création d'un dossier temporaire tmp/Video_game_tournament_management
-RUN git clone https://github.com/Ludovic-SIO/MyBodyTracer.git /tmp/MyBodyTracker
+RUN git clone https://github.com/Ludovic-SIO/MyBodyTracker.git /tmp/MyBodyTracker
 
 # Copie des fichiers php
 RUN cp -r /tmp/MyBodyTracker/site/* /var/www/html/
